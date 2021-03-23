@@ -1,5 +1,5 @@
 import './App.css';
-import { Button, Modal } from 'antd';
+import { Button } from 'antd';
 import { useEffect, useState } from "react";
 import { lists } from "./Mock";
 
@@ -7,7 +7,6 @@ function App() {
 
   const [list, setList] = useState(lists);  
   const [draggedData, setDraggedData] = useState();
-  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => { 
     const savedListData = localStorage.getItem("lists");
@@ -65,18 +64,24 @@ function App() {
       <header className="App-header">
       <h1 className="heading">Kanban</h1> 
       <div className="button-container-view">  
-        <Button className="button-style" onClick={() => addNewList("titleData")}>Add List to the board</Button>
-        <Button className="button-style" onClick={() => { addNewItemInList("In title","asignee","In Review")}}>Reset Board</Button>
+        <Button className="button-style" onClick={() => addNewList("titleData")}>Add List</Button>
+        {/* <Button className="button-style" onClick={() => { addNewItemInList("In title","asignee","In Review")}}>Reset Board</Button> */}
       </div>
       </header>
       <main className="main-container">
         <div className="list-container"> 
         {list && list.map((listItems)=> {
           return  (<div key={listItems.title} className="list-style" onDragOver={(e)=> dragOver(e)} onDrop={(event) => onDrop(event, listItems.title)}>
-          <h2>{listItems.title}</h2>
+          <div className="item-header">
+            <span className="heading">{listItems.title}</span> 
+            <Button className="delete-button">+</Button>
+          </div>
           {listItems.items.map((item) => {
               return <div draggable key={item.itemTitle} className="list-item" onDragStart={(event)=> { setDraggedData(item); dragStart(event, item.itemTitle, listItems.title)}}>
-              <p className="item-title">{item.itemTitle}</p>
+              <div className="item-header">
+                <span className="item-title">{item.itemTitle}</span> 
+                <Button className="delete-button" onClick={() => { console.log("Delete current element from list")}}>X</Button>
+              </div>
               <span className="text">{`Assignee: ${item.assignedTo}`}</span>
               </div>
           })}

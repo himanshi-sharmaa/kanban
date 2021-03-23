@@ -8,18 +8,20 @@
   flex-direction: row;
   justify-content: space-between;
   color: white;
-  max-height: 10vh;
+  max-height: 8vh;
 }
 
 .heading {
   margin-left: 1em;
   align-items: flex-start;
+  font-size:larger;
+  font-weight: 900;
 }
 
 .main-container {
   background-color: #DCDCDC;
-  max-height: 88vh;
-  min-height: 88vh;
+  max-height: 90vh;
+  min-height: 90vh;
   overflow-y: auto;
 }
 
@@ -41,10 +43,24 @@
 
 .button-style {
   background-color: #808080;
-  padding: 1em;
+  padding: 0.5em;
   margin-right: 1em;
   border-radius: 0.5em;
   color: antiquewhite;
+}
+
+.delete-button {
+  background-color: #808080;
+  padding: 0.1em;
+  color: antiquewhite;
+  max-height: 3vh;
+}
+
+.item-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5em;
 }
 
 .list-style {
@@ -70,7 +86,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: auto; 
-  max-height: 88vh;
+  max-height: 90vh;
   margin-right: 1em;
  
 }
