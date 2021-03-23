@@ -86,7 +86,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: auto; 
-  max-height: 90vh;
+  /* max-height: 90vh; */
   margin-right: 1em;
  
 }
