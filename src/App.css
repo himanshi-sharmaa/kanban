@@ -69,8 +69,8 @@
   flex-wrap: nowrap;
   overflow-y: auto;
   margin: 1em;
-  width: 25vw;
-  min-width: 25vw;
+  width: 23em;
+  min-width: 23em;
   background-color:wheat;
 }
 
@@ -86,7 +86,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: auto; 
-  /* max-height: 90vh; */
+  max-height: 90vh;
   margin-right: 1em;
  
 }
@@ -114,7 +114,7 @@
 
 .form-input {
   margin: 0.5em;
-  width: 20vw;
+  width: 10em;
   height: 4vh;
   border-radius: 0.5em;
   border-width: 0;
