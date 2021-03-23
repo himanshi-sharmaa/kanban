@@ -25,7 +25,7 @@ function App() {
     const addNewList = { title: titleData, items: []}; 
     const updateList = [...list, addNewList];
     setList(updateList);
-    updateDataInLocalStorage(list);
+    updateDataInLocalStorage("lists", JSON.stringify(updateList));
   }
 
   const addNewItemInList = (title, assignee, listTitle) => {
@@ -35,7 +35,7 @@ function App() {
         listData.items = [...listData.items,newItem];
       }
     })
-    updateDataInLocalStorage(list);
+    updateDataInLocalStorage("lists", JSON.stringify(list));
   }
 
   const dragOver = (event) => {
@@ -71,14 +71,14 @@ function App() {
       <header className="App-header">
       <h1 className="heading" onClick={() => {setAddItemInProgress(false); setAddListInProgress(false)}}>Kanban</h1> 
       <div className="button-container-view">  
-        <Button className="button-style" onClick={() => {
+        <Button className="button-style" disabled={addItemInProgress} onClick={() => {
           setAddListInProgress(true);
         }}>Add List</Button>
       </div>
       </header>
       <main className="main-container">
       {addListInProgress && <ListInput listTitle={(title) => {addNewList(title); setAddListInProgress(false)}}/>}
-      {addItemInProgress&& updateList!=="" && <ItemInput itemDetail={(title, assignee) => {console.log("Here"); addNewItemInList(title,assignee, updateList); setAddItemInProgress(false)}}/>}
+      {addItemInProgress&& updateList!=="" && <ItemInput itemDetail={(title, assignee) => { addNewItemInList(title,assignee, updateList); setAddItemInProgress(false)}}/>}
       { !addListInProgress && !addItemInProgress &&
         <div className="list-container"> 
         {list && list.map((listItems)=> {

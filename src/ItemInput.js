@@ -6,17 +6,15 @@ function ItemInput(props) {
     return(
         <div>
         <h2>Add Item Details</h2>
-        <form onSubmit={(event) => {
-             const itemData = {
-                itemTitle: title,
-                assignedTo: assignee
-             }
+        <form 
+        className="form-style"
+        onSubmit={(event) => {
              props.itemDetail(title, assignee);
              event.preventDefault()
             }}>
         <input
          type="text"
-         className="form-control"
+         className="form-input"
          placeholder="Title"
          value={title}
          onChange={(e) => {setTitle(e.target.value)}}
@@ -24,8 +22,8 @@ function ItemInput(props) {
        />
         <input
          type="text"
-         className="form-control"
-         placeholder="In progress"
+         className="form-input"
+         placeholder="Assignee"
          value={assignee}
          onChange={(e) => {setAssignee(e.target.value)}}
          name="Assignee"

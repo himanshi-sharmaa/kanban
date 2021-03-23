@@ -5,10 +5,10 @@ function ListInput(props) {
     return(
         <div>
         <h2>Add List Details</h2>
-        <form onSubmit={(event) => { props.listTitle(formValue);event.preventDefault()}}>
+        <form  className="form-style" onSubmit={(event) => { props.listTitle(formValue);event.preventDefault()}}>
         <input
          type="text"
-         className="form-control"
+         className="form-input"
          placeholder="In progress"
          value={formValue}
          onChange={(e) => {setFormValue(e.target.value)}}
